@@ -4,7 +4,6 @@
 
 // Виконай рефакторинг функції calculateTotalPrice() таким чином, щоб вона була оголошена як стрілочна.
 
-
 // const calculateTotalPrice = (quantity, pricePerItem) => {
 //   return quantity * pricePerItem;
 // }
@@ -37,15 +36,15 @@
 
 // Виконай рефакторинг функції calculateTotalPrice(orderedItems), замінивши її оголошення на стрілочну функцію. Також заміни колбек-функцію, передану в метод forEach(), на стрілочну функцію.
 
-// const calculateTotalPrice = (orderedItems) => {
+// const calculateTotalPrice = orderedItems => {
 //   let totalPrice = 0;
 
-//   orderedItems.forEach((item) => {
+//   orderedItems.forEach(item => {
 //     totalPrice += item;
 //   });
 
 //   return totalPrice;
-// }
+// };
 
 // console.log(calculateTotalPrice([12, 85, 37, 4])); // 138
 // console.log(calculateTotalPrice([164, 48, 291])); // 503
