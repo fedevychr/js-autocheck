@@ -1,5 +1,7 @@
 // Метод filter()
 
+import { users } from './task-5';
+
 // Доповни код так, щоб у змінній evenNumbers був масив парних чисел із масиву numbers, а у змінній oddNumbers — масив непарних. Обов'язково використовуй метод filter().
 
 // const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
@@ -54,8 +56,6 @@
 //     const usersEyeColor = users.filter(user => user.eyeColor === color);
 //     return usersEyeColor;
 // };
-
-
 
 // const users = [
 //     {
@@ -206,3 +206,4 @@
 // console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {Elma Head}
 // console.log(getUserWithEmail(users, 'blackburndotson@furnigeer.com')); // {Blackburn Dotson}
 // console.log(getUserWithEmail(users, 'email')); // undefined
+// console.log(isEveryUserActive(users)); // false
