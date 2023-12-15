@@ -1,6 +1,6 @@
-// Метод filter()
+// Методи filter і find
 
-import { users } from './task-5';
+// Метод filter()
 
 // Доповни код так, щоб у змінній evenNumbers був масив парних чисел із масиву numbers, а у змінній oddNumbers — масив непарних. Обов'язково використовуй метод filter().
 

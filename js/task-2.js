@@ -1,3 +1,7 @@
+// Стрілочні функції
+
+// Стрілочні функції: синтаксис
+
 // function calculateTotalPrice(quantity, pricePerItem) {
 //   return quantity * pricePerItem;
 // }
@@ -13,6 +17,7 @@
 // console.log(calculateTotalPrice(3, 400)); // 1200
 
 //////////////////////////////////////////////////////
+// Неявне повернення
 
 // Виконай рефакторинг функції calculateTotalPrice() таким чином, щоб вона використовувала неявне повернення.
 
@@ -23,6 +28,10 @@
 // console.log(calculateTotalPrice(3, 400)); // 1200
 
 //////////////////////////////////////////////////
+
+// Псевдомасив arguments
+
+// Колбеки
 
 // function calculateTotalPrice(orderedItems) {
 //   let totalPrice = 0;
@@ -51,6 +60,8 @@
 // console.log(calculateTotalPrice([412, 371, 94, 63, 176])); // 1116
 
 ////////////////////////////////////////////////////////////////
+
+// А тепер давай розглянемо задачу «Фільтр чисел»? 
 
 // function filterArray(numbers, value) {
 //   const filteredNumbers = [];
