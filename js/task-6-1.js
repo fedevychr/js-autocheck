@@ -69,9 +69,7 @@
 // // Викликаємо у глобальному контексті
 // showThis(); // "this in showThis: undefined"
 
-
 // Потім присвоюємо цю функцію властивості об'єкта і викликаємо її як метод цього об'єкта.
-
 
 // "use strict";
 
@@ -109,9 +107,7 @@
 // 	room: 191
 // };
 
-
 // // За допомогою методу call ми можемо викликати функцію greet так, щоб значення this вказувало на потрібний об'єкт і використовувало значення його властивостей.
-
 
 // greet.call(mango, "Welcome"); // "Welcome, Mango, your room is 27!"
 // greet.call(poly, "Aloha"); // "Aloha, Poly, your room is 191!"
@@ -179,4 +175,107 @@
 
 // Метод bind() і колбеки
 
+// 'use strict';
 
+// const customer = {
+//   firstName: 'Jacob',
+//   lastName: 'Mercer',
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
+
+// function makeMessage(callback) {
+//   // callback() — це виклик методу getFullName в глобальному контексті
+//   const username = callback();
+//   console.log(`Processing an application from ${username}`);
+// }
+
+// makeMessage(customer.getFullName); // TypeError: Cannot read properties of undefined (reading 'firstName')
+
+// Щоб уникнути цієї втрати контексту, можна використати метод bind(). Замість передачі оригінального методу getFullName, ми передаємо його копію, до якої прив'язаний контекст об'єкта customer.
+
+// const customer = {
+//   firstName: 'Jacob',
+//   lastName: 'Mercer',
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
+
+// function makeMessage(callback) {
+//   const username = callback();
+//   console.log(`Processing an application from ${username}`);
+// }
+
+// makeMessage(customer.getFullName.bind(customer)); // "Processing an application from Jacob Mercer"
+
+////////////////////////////////////
+
+// Стрілочні функції
+
+// const hotel = {
+//   username: 'Resort hotel',
+//   showThis() {
+//     const foo = () => {
+//       console.log('this in foo: ', this);
+//     };
+
+//     foo();
+//     console.log('this in showThis: ', this);
+//   },
+// };
+
+// hotel.showThis();
+// this in foo: {username: 'Resort hotel', showThis: ƒ}
+// this in showThis: {username: 'Resort hotel',showThis: ƒ}
+
+// На відміну від звичайних функцій, змінити значення this усередині стрілки після її оголошення неможливо. Це означає, що методи call, apply і bind не впливають на значення this у стрілках.
+
+// const showThis = () => {
+//   console.log('this in showThis: ', this);
+// };
+
+// showThis.call({ username: 'Mango' }); // this in showThis: window
+// showThis.apply({ username: 'Mango' }); // this in showThis: window
+
+// const boundShowThis = showThis.bind({ username: 'Mango' });
+// boundShowThis(); // this in showThis: window
+
+/////////////////////////////////////
+
+// Алгоритм визначення this
+
+// Ключове слово this — це одна з найзаплутаніших концепцій для новачка.
+
+// Новачки часто підставляють this методом наукового тику доти, доки скрипт не спрацює.
+
+// Але все стає значно простішим, коли є простий алгоритм визначення значення this.
+
+// Крок 1
+
+// Це стрілочна функція?
+
+// Якщо відповідь Так, значення this те саме, що у this у зовнішній області видимості
+// Якщо відповідь Ні, переходь на Крок 2
+
+// Крок 2
+
+// Чи використовуються методи call, apply або bind?
+
+// Якщо відповідь Так, значення this — це той самий об’єкт, що передали при їх виклику
+// Якщо відповідь Ні, переходь на Крок 3
+
+// Крок 3
+
+// Функція викликається як метод об’єкта object.method?
+
+// Якщо відповідь Так, значення this — це об’єкт ліворуч від крапки
+// Якщо відповідь Ні, переходь на Крок 4
+
+// Крок 4
+
+// Скрипт виконується в суворому режимі?
+
+// Якщо відповідь Так, значення this — undefined
+// Якщо відповідь Ні, значення this — window
